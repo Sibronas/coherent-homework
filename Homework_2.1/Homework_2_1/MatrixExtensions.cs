@@ -10,57 +10,20 @@ namespace Homework_2_1
     {
         public static Matrix Add(this Matrix firstMatrix, Matrix secondMatrix)
         {
-            var diagonal = new List<int>();
+            int newMatrixSize = Math.Max(firstMatrix.Size, secondMatrix.Size);
+            int[] newMatrixElements = new int[newMatrixSize];
 
-            if (firstMatrix.Size == secondMatrix.Size)
+            for (int i = 0; i < newMatrixSize; i++)
+
             {
-                for (var i = 0; i < firstMatrix.Size; i++)
-                {
-                    diagonal.Add(firstMatrix[i, i] + secondMatrix[i, i]);
-                }
 
-                return new Matrix(diagonal.ToArray());
-            }
-            else if (firstMatrix.Size > secondMatrix.Size)
-            {
-                var secondMatrixWithPadding = new List<int>();
+                newMatrixElements[i] = firstMatrix[i, i] + secondMatrix[i, i];  // No out of range exception here, as indexers are safe to get values out of bounds. 
 
-                for (var i = 0; i < firstMatrix.Size; i++)
-                {
-                    if (i > secondMatrix.Size)
-                    {
-                        secondMatrixWithPadding.Add(0);
-                    }
-
-                    secondMatrixWithPadding.Add(secondMatrix[i, i]);
-                }
-
-                for (var i = 0; i < firstMatrix.Size; i++)
-                {
-                    diagonal.Add(firstMatrix[i, i] + secondMatrixWithPadding[i]);
-                }
-            }
-            else
-            {
-                var firstMatrixWithPadding = new List<int>();
-
-                for (var i = 0; i < secondMatrix.Size; i++)
-                {
-                    if (i > firstMatrix.Size)
-                    {
-                        firstMatrixWithPadding.Add(0);
-                    }
-
-                    firstMatrixWithPadding.Add(firstMatrix[i, i]);
-                }
-
-                for (var i = 0; i < secondMatrix.Size; i++)
-                {
-                    diagonal.Add(firstMatrixWithPadding[i] + secondMatrix[i, i]);
-                }
             }
 
-            return new Matrix(diagonal.ToArray());
+
+
+            return new Matrix(newMatrixElements);
         }
     }
 }

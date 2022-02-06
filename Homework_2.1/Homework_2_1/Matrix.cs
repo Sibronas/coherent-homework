@@ -8,8 +8,8 @@ namespace Homework_2_1
 {
     public class Matrix
     {
-        public int[] Diagonal { get; set; }
-        public int Size { get; set; }
+        public int[] Diagonal { get; private set; }
+        public int Size { get; private set; }
 
         public int this[int i, int j]
         {
@@ -19,9 +19,7 @@ namespace Homework_2_1
                 {
                     return 0;
                 }
-
-
-                if (i < 0 || i >= Size || j < 0 || j >= Size)
+                else if (i < 0 || i >= Size || j < 0 || j >= Size)
                 {
                     return 0;
                 }
@@ -36,8 +34,7 @@ namespace Homework_2_1
                 {
                     return;
                 }
-
-                if (i < 0 || i >= Size || j < 0 || j >= Size)
+                else if (i < 0 || i >= Size || j < 0 || j >= Size)
                 {
                     return;
                 }
