@@ -15,11 +15,7 @@ namespace Homework_2_1
         {
             get
             {
-                if (i != j)
-                {
-                    return 0;
-                }
-                else if (i < 0 || i >= Size || j < 0 || j >= Size)
+                if (i != j || i < 0 || i >= Size || j < 0 || j >= Size)
                 {
                     return 0;
                 }
@@ -30,11 +26,7 @@ namespace Homework_2_1
 
             set
             {
-                if (i != j)
-                {
-                    return;
-                }
-                else if (i < 0 || i >= Size || j < 0 || j >= Size)
+                if (i != j || i < 0 || i >= Size || j < 0 || j >= Size)
                 {
                     return;
                 }
